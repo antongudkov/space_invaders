@@ -1,35 +1,31 @@
 # SpaceInvaders
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/space_invaders`. To experiment with that code, run `bin/console` for an interactive prompt.
+Application takes a radar sample as an argument and reveal possible locations of those pesky invaders.
 
-TODO: Delete this and the text above, and describe your gem
+## Setup
 
-## Installation
+Run this command to install dependencies:
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'space_invaders'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install space_invaders
+    $ ./bin/setup
 
 ## Usage
 
-TODO: Write usage instructions here
+Run ruby console:
 
-## Development
+    $ ./bin/console
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+And then execute:
+```ruby
+radar_sample = File.read('spec/fixtures/radar_sample.txt')
+invader_1 = File.read('spec/fixtures/invader_1.txt')
+invader_2 = File.read('spec/fixtures/invader_2.txt')
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+result = SpaceInvaders::Scanner.call(radar_sample: radar_sample, invaders: [invader_1, invader_2])
+puts result
+```
 
-## Contributing
+## Testing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/space_invaders.
+Run rspec:
+
+    $ bundle exec rake spec
