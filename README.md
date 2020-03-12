@@ -1,6 +1,11 @@
-# SpaceInvaders
+# Space Invaders
 
 Application takes a radar sample as an argument and reveal possible locations of those pesky invaders.
+
+## Notes
+Scan algorithm could be better: currently it does not reveal possible invaders if they partially appeared in radar. For example, there is a possible invader and very bottom of radar sample.
+
+Result of scan is optimized radar sample with revealed invaders.
 
 ## Setup
 
